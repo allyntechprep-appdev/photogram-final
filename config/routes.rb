@@ -20,6 +20,13 @@ Rails.application.routes.draw do
 
   # Routes for the Follow request resource:
 
+  get("/", { :controller => "users", :action => "home"})
+  get("/users", { :controller => "users", :action => "idk" })
+  get("/users/:username", { :controller => "users", :action => "profile" })
+  get("/users/:username/liked_photos", { :controller => "users", :action => "liked" })
+  get("/users/:username/feed", { :controller => "users", :action => "feed" })
+  get("/users/:username/discover", { :controller => "users", :action => "discover"})
+
   # CREATE
   post("/insert_follow_request", { :controller => "follow_requests", :action => "create" })
           
@@ -101,6 +108,14 @@ Rails.application.routes.draw do
   get("/user_sign_out", { :controller => "user_authentication", :action => "destroy_cookies" })
              
   #------------------------------
+
+  # ADDITIONAL ROUTES
+
+  # get("/users", { :controller => "users", :action => "idk" })
+  # get("/users/:username", { :controller => "users", :action => "profile" })
+  # get("/users/:username/liked_photos", { :controller => "users", :action => "liked" })
+  # get("/users/:username/feed", { :controller => "users", :action => "feed" })
+  # get("/users/:username/discover", { :controller => "users", :action => "discover"})
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
